@@ -61,13 +61,13 @@ def spin_kcp_in_container(request, base_url: str) -> str:
         wait_available(base_url)
 
         def cleanup():
-            cmd = [
+            cleanup_cmd = [
                 "docker",
                 "rm",
                 "-f",
                 CONTAINER_NAME
             ]
-            cleanup_popen = subprocess.Popen(cmd, stderr=PIPE)
+            cleanup_popen = subprocess.Popen(cleanup_cmd, stderr=PIPE)
             cleanup_popen.wait(10)
             # tmpdir should be removes strictly after container stop, otherwise it will break docker.
             shutil.rmtree(tmpdir, ignore_errors=True)
