@@ -1,0 +1,8 @@
+.idea
+venv
+
+.pytest_cache
+.hypothesis
+
+schemathesis
+kcp
